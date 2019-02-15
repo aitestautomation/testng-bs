@@ -23,6 +23,7 @@ public class BrowserStackTestNGTest {
 
     @BeforeMethod(alwaysRun=true)
     @org.testng.annotations.Parameters(value={"config", "environment"})
+    @SuppressWarnings("unchecked")
     public void setUp(String config_file, String environment) throws Exception {
         JSONParser parser = new JSONParser();
         JSONObject config = (JSONObject) parser.parse(new FileReader("src/test/resources/conf/" + config_file));
@@ -30,20 +31,24 @@ public class BrowserStackTestNGTest {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        Map<String, String> envCapabilities = (Map<String, String>) envs.get(environment);
-        Iterator it = envCapabilities.entrySet().iterator();
+        Map<String, Object> envCapabilities = (Map<String, Object>) envs.get(environment);
+        Iterator<Map.Entry<String, Object>> it = envCapabilities.entrySet().iterator();
         while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry)it.next();
-            capabilities.setCapability(pair.getKey().toString(), pair.getValue().toString());
+            Map.Entry<String, Object> pair = (Map.Entry<String, Object>) it.next();
+            capabilities.setCapability(pair.getKey().toString(), pair.getValue());
         }
-        
-        Map<String, String> commonCapabilities = (Map<String, String>) config.get("capabilities");
+
+        Map<String, Object> commonCapabilities = (Map<String, Object>) config.get("capabilities");
         it = commonCapabilities.entrySet().iterator();
         while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry)it.next();
-            if(capabilities.getCapability(pair.getKey().toString()) == null){
-                capabilities.setCapability(pair.getKey().toString(), pair.getValue().toString());
+            Map.Entry<String, Object> pair = (Map.Entry<String, Object>) it.next();
+            Object envData = capabilities.getCapability(pair.getKey().toString());
+            Object resultData = pair.getValue();
+            if (envData != null && envData.getClass() == JSONObject.class) {
+                resultData = ((JSONObject) resultData).clone(); // do not modify actual common caps
+                ((JSONObject) resultData).putAll((JSONObject) envData);
             }
+            capabilities.setCapability(pair.getKey().toString(), resultData);
         }
 
         String username = System.getenv("BROWSERSTACK_USERNAME");
