@@ -8,8 +8,7 @@
       "sessionName": "parallel_test",
       "buildName": "testng-browserstack",
       "projectName": "My Awesome App",
-      "debug": true,
-      "seleniumVersion": "3.13.0"
+      "debug": true
     }
   },
   "environments": {

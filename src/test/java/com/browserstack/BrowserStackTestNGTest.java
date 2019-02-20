@@ -74,6 +74,8 @@ public class BrowserStackTestNGTest {
     @AfterMethod(alwaysRun=true)
     public void tearDown() throws Exception {
         driver.quit();
-        if(l != null) l.stop();
+        if (l != null) {
+            l.stop();
+        }
     }
 }
