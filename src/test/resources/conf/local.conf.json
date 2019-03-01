@@ -10,7 +10,8 @@
       "sessionName": "local_test",
       "buildName": "testng-browserstack",
       "projectName": "My Awesome App",
-      "debug": true
+      "debug": true,
+      "local": true
     }
   },
   "environments": {
