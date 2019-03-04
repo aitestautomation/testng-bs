@@ -66,7 +66,7 @@ public class BrowserStackTestNGTest {
         driver = new RemoteWebDriver(new URL("http://"+username+":"+accessKey+"@"+config.get("server")+"/wd/hub"), capabilities);
     }
 
-    public void checkAndStartBrowserStackLocal(DesiredCapabilities capabilities, String accessKey) {
+    public void checkAndStartBrowserStackLocal(DesiredCapabilities capabilities, String accessKey) throws Exception {
         if (bsLocal != null) {
             return;
         }
@@ -81,6 +81,7 @@ public class BrowserStackTestNGTest {
             } catch (Exception e) {
                 System.out.println("Error: could not start browserstack local");
                 e.printStackTrace();
+                throw e;
             }
         }
     }
