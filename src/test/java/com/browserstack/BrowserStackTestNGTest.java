@@ -45,7 +45,6 @@ public class BrowserStackTestNGTest {
             Object envData = capabilities.getCapability(pair.getKey().toString());
             Object resultData = pair.getValue();
             if (envData != null && envData.getClass() == JSONObject.class) {
-                resultData = ((JSONObject) resultData).clone(); // do not modify actual common caps
                 ((JSONObject) resultData).putAll((JSONObject) envData);
             }
             capabilities.setCapability(pair.getKey().toString(), resultData);
@@ -63,7 +62,7 @@ public class BrowserStackTestNGTest {
 
         this.checkAndStartBrowserStackLocal(capabilities, accessKey);
 
-        driver = new RemoteWebDriver(new URL("http://"+username+":"+accessKey+"@"+config.get("server")+"/wd/hub"), capabilities);
+        driver = new RemoteWebDriver(new URL("https://"+username+":"+accessKey+"@"+config.get("server")+"/wd/hub"), capabilities);
     }
 
     public void checkAndStartBrowserStackLocal(DesiredCapabilities capabilities, String accessKey) throws Exception {

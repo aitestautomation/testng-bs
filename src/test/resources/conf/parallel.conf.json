@@ -29,7 +29,6 @@
       "browser": "Internet Explorer",
       "bstack:options": {
         "os": "Windows",
-        "seleniumVersion": "3.12.0"
       }
     }
   }
