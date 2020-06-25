@@ -2,16 +2,7 @@ plugins {
     id 'java'
 }
 
-repositories {
-    mavenLocal()
-    maven {
-        url = 'https://oss.sonatype.org/content/repositories/snapshots'
-    }
-
-    maven {
-        url = 'http://repo.maven.apache.org/maven2'
-    }
-}
+repositories { mavenCentral() }
 
 dependencies {
     compile 'org.testng:testng:6.9.10'
