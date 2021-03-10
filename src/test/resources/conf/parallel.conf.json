@@ -10,17 +10,17 @@
   },
 
   "environments": {
-    "chrome": {
+    "env1": {
       "browser": "chrome"
     },
-    "firefox": {
+    "env2": {
       "browser": "firefox"
     },
-    "safari": {
+    "env3": {
       "os": "OS X",
       "browser": "safari"
     },
-    "ie": {
+    "env4": {
       "browser": "internet explorer"
     }
   }
