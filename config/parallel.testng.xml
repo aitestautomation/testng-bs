@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Parallel" thread-count="4" parallel="tests">
-    <test name="SingleTestChrome">
+    <test name="SingleTestEnv1">
         <parameter name="config" value="parallel.conf.json"/>
         <parameter name="environment" value="env1"/>
         <classes>
@@ -9,7 +9,7 @@
         </classes>
     </test>
 
-    <test name="SingleTestFirefox">
+    <test name="SingleTestEnv2">
         <parameter name="config" value="parallel.conf.json"/>
         <parameter name="environment" value="env2"/>
         <classes>
@@ -17,7 +17,7 @@
         </classes>
     </test>
 
-    <test name="SingleTestSafari">
+    <test name="SingleTestEnv3">
         <parameter name="config" value="parallel.conf.json"/>
         <parameter name="environment" value="env3"/>
         <classes>
@@ -25,7 +25,7 @@
         </classes>
     </test>
 
-    <test name="SingleTestIE">
+    <test name="SingleTestEnv4">
         <parameter name="config" value="parallel.conf.json"/>
         <parameter name="environment" value="env4"/>
         <classes>
