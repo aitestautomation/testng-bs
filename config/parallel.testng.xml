@@ -3,7 +3,7 @@
 <suite name="Parallel" thread-count="4" parallel="tests">
     <test name="SingleTestChrome">
         <parameter name="config" value="parallel.conf.json"/>
-        <parameter name="environment" value="chrome"/>
+        <parameter name="environment" value="env1"/>
         <classes>
             <class name="com.browserstack.SingleTest"/>
         </classes>
@@ -11,7 +11,7 @@
 
     <test name="SingleTestFirefox">
         <parameter name="config" value="parallel.conf.json"/>
-        <parameter name="environment" value="firefox"/>
+        <parameter name="environment" value="env2"/>
         <classes>
             <class name="com.browserstack.SingleTest"/>
         </classes>
@@ -19,7 +19,7 @@
 
     <test name="SingleTestSafari">
         <parameter name="config" value="parallel.conf.json"/>
-        <parameter name="environment" value="safari"/>
+        <parameter name="environment" value="env3"/>
         <classes>
             <class name="com.browserstack.SingleTest"/>
         </classes>
@@ -27,7 +27,7 @@
 
     <test name="SingleTestIE">
         <parameter name="config" value="parallel.conf.json"/>
-        <parameter name="environment" value="ie"/>
+        <parameter name="environment" value="env4"/>
         <classes>
             <class name="com.browserstack.SingleTest"/>
         </classes>
