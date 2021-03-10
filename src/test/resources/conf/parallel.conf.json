@@ -19,9 +19,6 @@
     "env3": {
       "os": "OS X",
       "browser": "safari"
-    },
-    "env4": {
-      "browser": "internet explorer"
     }
   }
 }
