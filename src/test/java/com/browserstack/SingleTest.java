@@ -13,10 +13,11 @@ public class SingleTest extends BrowserStackTestNGTest {
     public void test() throws Exception {
         driver.get("https://www.google.com/ncr");
         try {
-            WebElement ele = driver.findElement(By.className("IKl7Q"));
-            if(ele.isDisplayed()) {
-                ((JavascriptExecutor)driver).executeScript("arguments[0].scrollTo(0, arguments[0].scrollHeight)",ele);
-                driver.findElement(By.xpath("//*[@id='L2AGLb']/div")).click();
+            WebElement ele = driver.findElement(By.xpath("//div[text()='I agree']"));
+            if(ele.isDisplayed()){
+                ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView()", ele);
+                Thread.sleep(5000);
+                ele.click();
             }
         }
         catch(Exception e){
