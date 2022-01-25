@@ -64,6 +64,12 @@
                         <suiteXmlFile>config/parallel.testng.xml</suiteXmlFile>
                         <suiteXmlFile>config/suite.testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <properties>
+                        <property>
+                            <name>suitethreadpoolsize</name>
+                            <value>4</value>
+                        </property>
+                    </properties>
                 </configuration>
             </plugin>
         </plugins>
