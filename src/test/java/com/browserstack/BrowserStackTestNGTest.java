@@ -63,6 +63,8 @@ public class BrowserStackTestNGTest {
             options.put("key", accessKey);
             l.start(options);
         }
+        String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
+        capabilities.setCapability("build", buildName);
 
         driver = new RemoteWebDriver(
                 new URL("http://" + username + ":" + accessKey + "@" + config.get("server") + "/wd/hub"), capabilities);
