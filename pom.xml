@@ -56,7 +56,7 @@
                 <version>2.18.1</version>
                 <configuration>
                     <parallel>methods</parallel>
-                    <threadCount>3</threadCount>
+                    <threadCount>10</threadCount>
                     <suiteXmlFiles>
                         <suiteXmlFile>config/single.testng.xml</suiteXmlFile>
                         <suiteXmlFile>config/local.testng.xml</suiteXmlFile>
