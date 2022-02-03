@@ -1,6 +1,7 @@
 {
   "server": "hub-cloud.browserstack.com",
-
+  "user": null,
+  "key": null,
 
   "capabilities": {
     "build": "browserstack-build-1",
