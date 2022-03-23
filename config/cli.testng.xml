@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Cli" thread-count="3" parallel="tests">
+    <test name="CliTestEnv1">
+        <parameter name="config" value=""/>
+        <parameter name="environment" value="env1"/>
+        <classes>
+            <class name="com.browserstack.SingleTest"/>
+        </classes>
+    </test>
+
+    <test name="CliTestEnv2">
+        <parameter name="config" value=""/>
+        <parameter name="environment" value="env2"/>
+        <classes>
+            <class name="com.browserstack.SingleTest"/>
+        </classes>
+    </test>
+
+    <test name="CliTestEnv3">
+        <parameter name="config" value=""/>
+        <parameter name="environment" value="env3"/>
+        <classes>
+            <class name="com.browserstack.SingleTest"/>
+        </classes>
+    </test>
+</suite>
