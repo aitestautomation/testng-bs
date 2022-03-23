@@ -25,8 +25,31 @@ public class BrowserStackTestNGTest {
     @SuppressWarnings("unchecked")
     public void setUp(String config_file, String environment) throws Exception {
         JSONParser parser = new JSONParser();
-        JSONObject config = (JSONObject) parser.parse(new FileReader("src/test/resources/conf/" + config_file));
-        JSONObject envs = (JSONObject) config.get("environments");
+        JSONObject config;
+        JSONObject envs;
+        if (!config_file.isEmpty()) {
+            config = (JSONObject) parser.parse(new FileReader("src/test/resources/conf/" + config_file));
+            envs = (JSONObject) config.get("environments");
+        } else {
+            config = (JSONObject) parser.parse("{}");
+            String cliHub = System.getProperty("hub");
+            if (cliHub.isEmpty()) {
+                cliHub = "hub.browserstack.com";
+            }
+            config.put("server", cliHub);
+            String cliUser = System.getProperty("userName");
+            if (!cliUser.isEmpty()) {
+                config.put("user", cliUser);
+            }
+            String cliKey = System.getProperty("accessKey");
+            if (!cliKey.isEmpty()) {
+                config.put("key", cliKey);
+            }
+            JSONObject cliCaps = (JSONObject) parser.parse(System.getProperty("caps").replaceAll("'", "\""));
+            config.put("capabilities", cliCaps);
+            JSONObject clienvs = (JSONObject) parser.parse(System.getProperty("envs").replaceAll("'", "\""));
+            envs = clienvs;
+        }
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
