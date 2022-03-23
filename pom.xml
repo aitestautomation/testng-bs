@@ -54,6 +54,15 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.18.1</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <userName>${user}</userName>
+                        <accessKey>${key}</accessKey>
+                        <caps>${capabilities}</caps>
+                        <envs>${environments}</envs>
+                        <hub>${server}</hub>
+                    </systemPropertyVariables>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -120,6 +129,23 @@
                         <configuration>
                             <suiteXmlFiles>
                                 <suiteXmlFile>config/suite.testng.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>cli</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>config/cli.testng.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>
