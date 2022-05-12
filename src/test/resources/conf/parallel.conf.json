@@ -1,24 +1,30 @@
 {
-  "server": "hub-cloud.browserstack.com",
-  "user": "BROWSERSTACK_USERNAME",
-  "key": "BROWSERSTACK_ACCESS_KEY",
-
+  "server": "hub.browserstack.com",
+  "user": "chandrakanthdona1",
+  "key": "xsj2vWqcVQ8kFpnk7zBU",
   "capabilities": {
     "build": "browserstack-build-1",
     "name": "parallel_test",
     "browserstack.debug": true
   },
-
   "environments": {
     "env1": {
-      "browser": "chrome"
+      "browser": "chrome",
+      "browser_version": "latest",
+      "os": "Windows",
+      "os_version": "10"
     },
     "env2": {
-      "browser": "firefox"
+      "browser": "firefox",
+      "browser_version": "latest",
+      "os": "Windows",
+      "os_version": "10"
     },
     "env3": {
+      "browser": "safari",
+      "browser_version": "latest",
       "os": "OS X",
-      "browser": "safari"
+      "os_version": "Big Sur"
     }
   }
 }
