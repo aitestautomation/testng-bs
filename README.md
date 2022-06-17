@@ -2,7 +2,7 @@
 
 [TestNG](http://testng.org) Integration with BrowserStack.
 
-Master branch contains **Selenium 3** samples, for **Selenium 4 - W3C protocol** please checkout [selenium-4](https://github.com/browserstack/testng-browserstack/tree/selenium-4) branch
+Supports JSON Wire, W3C Protocol and Selenium 3, 4
 
 ![BrowserStack Logo](https://d98b8t1nnulk5.cloudfront.net/production/images/layout/logo-header.png?1469004780)
 
