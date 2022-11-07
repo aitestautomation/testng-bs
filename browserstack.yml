@@ -3,8 +3,8 @@
 # =============================
 # Add your BrowserStack userName and acccessKey here or set BROWSERSTACK_USERNAME and
 # BROWSERSTACK_ACCESS_KEY as env variables
-userName: YOUR_USERNAME
-accessKey: YOUR_ACCESS_KEY
+userName: viswa_FeSvcL
+accessKey: E9D8c3Cd5qYisvGUyHsL
 
 # ======================
 # Organizing your tests
@@ -36,8 +36,8 @@ platforms:
     osVersion: 10
     browserName: Edge
     browserVersion: latest
-  - device: Samsung Galaxy S22 Ultra
-    browserName: chrome # Try 'samsung' for Samsung browser
+  - device: Xioami 11 Lite NE 
+    browserName: chrome # Try 'chrome' for Chrome browser
     osVersion: 12.0
 
 # =======================
