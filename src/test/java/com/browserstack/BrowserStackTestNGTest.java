@@ -52,6 +52,7 @@ public class BrowserStackTestNGTest {
         }
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("browserstack.source", "testng:sample-onboarding:v1.0");
 
         Map<String, String> envCapabilities = (Map<String, String>) envs.get(environment);
         Iterator it = envCapabilities.entrySet().iterator();
