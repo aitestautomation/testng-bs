@@ -7,8 +7,8 @@ public class LocalTest extends SeleniumTest {
 
     @Test
     public void test() throws Exception {
-        driver.get("http://bs-local.com:45691/check");
+        driver.get("http://bs-local.com:45454/");
 
-        Assert.assertTrue(driver.getPageSource().contains("Up and running"));
+        Assert.assertTrue(driver.getTitle().contains("BrowserStack Local"));
     }
 }
