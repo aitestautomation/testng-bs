@@ -1,7 +1,9 @@
 name: 'BrowserStack Test'
-on: [push, pull_request]
-schedule:
-    - cron: '* * * * 1'  # every day at midnight
+on:  
+  push:
+  pull_request:
+  schedule:
+    - cron: '* * * * 5'  # every day at midnight
 
 jobs:
   ubuntu-job:
