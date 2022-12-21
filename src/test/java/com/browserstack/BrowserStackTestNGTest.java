@@ -89,7 +89,7 @@ public class BrowserStackTestNGTest {
         }
 
         driver = new RemoteWebDriver(
-                new URL("http://" + username + ":" + accessKey + "@" + config.get("server") + "/wd/hub"), capabilities);
+                new URL("https://" + username + ":" + accessKey + "@" + config.get("server") + "/wd/hub"), capabilities);
     }
 
     @AfterMethod(alwaysRun = true)
