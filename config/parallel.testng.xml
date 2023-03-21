@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Parallel" thread-count="4" parallel="tests">
+<suite name="Parallel" thread-count="4" parallel="tests" time-out="120000">
     <parameter name="config" value="parallel.conf.json"/>
     <test name="SingleTestChrome">
         <parameter name="environment" value="env1"/>
