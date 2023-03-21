@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Single">
+<suite name="Single" time-out="120000">
     <test name="SingleTest">
         <parameter name="config" value="single.conf.json"/>
         <parameter name="environment" value="chrome"/>
