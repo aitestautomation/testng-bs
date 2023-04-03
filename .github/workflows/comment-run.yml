@@ -14,20 +14,19 @@ jobs:
     runs-on: ${{ matrix.os }}
     continue-on-error: true
     strategy:
-      max-parallel: 3
+      max-parallel: 1
       matrix:
         java: [ '8', '11', '17' ]
         os: [ 'macos-latest', 'windows-latest', 'ubuntu-latest' ]
     name: TestNG Repo ${{ matrix.Java }} - ${{ matrix.os }} Sample
     env:
-      user: context.payload.sender.login
-      check-team: asi-devs
       BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
       BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
 
     steps:
       - uses: actions/checkout@v3
       - uses: actions/github-script@v6
+        id: check-membership
         with:
           script: |
             const creator = context.payload.sender.login
@@ -36,7 +35,11 @@ jobs:
               team_slug: 'asi-devs',
               username: creator
             })
-            console.log("HERE", creator, result) // do whatever you want
+            console.log(`The comment creator ${creator} membership - ${result}`)
+            if (response.state === "active") {
+                return "true"
+            }
+            core.setFailed('User is not part of the owner team!')
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
